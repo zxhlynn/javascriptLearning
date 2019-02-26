@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+</head>
+<body>
+    <script>
+        // 使用构造函数创建一个函数对象，开发中基本上不使用，函数也是对象，它具备普通对象的所有特性
+        var fun = new Function("console.log('hello 这是一个函数')");
+        fun.name = "zxh";
+        console.log(fun);
+
+        var fun2 = new Function("x","y","return x+y;");
+
+        var num = fun2(1,2);
+
+        console.log(num);
+
+        // 使用函数声明创建函数
+        function test() {
+            alert("test");
+        }
+
+        // 带参数的函数
+        function test2(a,b){
+            alert(a+b);
+        }
+
+        // 带返回值的函数
+        function test3(a,b){
+            return a+b;
+        }
+
+        // 参数可以是任意值
+        function test4(a,b,c,d){
+            console.log(a);
+            console.log(b);
+            console.log(c);
+            console.log(d);
+        }
+
+        test4("1",{name:"zx"},test3,100);
+
+        // 如果没有返回值则返回值是undefined
+        var value = test4();
+
+        // 返回值是任意类型
+
+
+        // 立即执行函数(函数自调用)
+        (function(a,b){
+            alert(a + b);
+        })(1,2);
+    </script>
+</body>
+</html>

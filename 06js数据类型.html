@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据类型</title>
+</head>
+<body>
+    <script>
+        /*
+            基本数据类型
+                1. String 字符串
+                    使用’‘或者“”引起来
+                2. Number 数值
+                    包含整数和浮点数（小数），例如 1，2e+100,3e-39,1.5
+                    最大值 Number.MAX_VALUE 超出这个值则会 显示Infinity字面量表示无穷大
+                    NaN 表示notNumber 表示不是数字
+                3. Boolean 布尔
+                    用来进行逻辑运算
+                    true 
+                    false
+                4. Null 空值
+                    null 表示空对象
+                5. Undefined 未定义
+            引用数据类型
+                6. Object 对象
+
+            使用 typeof 检查变量类型，返回String类型
+            *使用typeof 检查一个null返回 “object”
+        */
+
+        var max = Number.MAX_VALUE;
+        console.log(max + 1);
+        // 表示无穷大
+        var infi = Infinity;
+
+        var num = 3e100;
+
+        console.log(num);
+
+        // a声明但未赋值所以输出undefined
+        var a;
+        console.log(a);
+
+        var obj = null;
+        console.log(obj);
+
+        console.log(typeof(obj));
+
+
+
+    </script>
+</body>
+</html>

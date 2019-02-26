@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据类型转换</title>
+</head>
+<body>
+    <script>
+        var str = "123";
+        var num = 123;
+        var bool = true;
+        var valueNull = null;
+        var valueundefined = undefined;
+
+        // 将数值类型和boolean类型转换成字符类型
+        var numStr = num.toString();
+        var boolStr = bool.toString();
+        
+        // null和undefined无法使用toString()方法
+        // 使用强制类型转换
+        var nullStr = String(valueNull);
+        var undefinedStr = String(valueundefined);
+
+        // 强制转换为boolean类型
+        // 数字类型转boolean，0为false,非0为true,NaN为false,Infinity为true
+        // 字符串转boolean,空字符串为false,非空字符串为true
+        // null和undefined均转换为false
+        var numBool = Boolean(num);
+        str = ' '
+        console.log(Boolean(str)) // ture
+
+        // 强制转换为number
+        // 注意空字符串或者空字符字符串（多空格）转为0, 含有非数字则为NaN
+        // null转数字为0,undefined转数字为NaN
+        var strNum = Number(str);
+
+        // 可以使用parseInt()或者parseFloat()
+        str = "1234xxx";
+        strNum = parseInt(str);
+        console.log(strNum);
+
+        str = "xxx1234";
+        strNum = parseInt(str);
+        console.log(strNum);
+
+        str = "   1234xxx";
+        strNum = parseInt(str);
+        console.log(strNum);
+
+        num = 070;
+        console.log(num);
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 在对象外部叫做函数 在对象内部叫做方法
+        function test(){
+            alert('123');
+        }
+
+        var obj = new Object();
+        obj.test = test;
+        obj.test();
+
+        // 给对象添加方法
+        obj.test1 = function(){
+            console.log('方式1');
+        }
+
+        
+
+    </script>
+</body>
+</html>

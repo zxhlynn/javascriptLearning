@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(a,b){
+
+        }
+
+        /*
+            call()和apply()都是函数对象的方法
+
+            两个方法都是调取函数
+            fun.call()
+            fun.apply()
+            效果等同于fun()
+            调用call()和apply()可以将一个对象指定为第一个参数，
+            此时这个对象将会成为我们函数执行时的this
+
+            call()方法可以将实参在指定对象之后以此传递,
+
+            apply()需要将实参封装到一个数组中进行传递
+        */
+
+        var obj = {};
+        var a = 1;
+        var b = 2;
+        fun(a,b)
+        fun.call(obj,a,b);
+        fun.apply(obj,[a,b]);
+
+
+        /*
+            调用函数时浏览器每次都会传递进去两个隐含参数；
+            1. 函数的上下文this
+            2. 封装实参的对象arguments
+                - arguments是一个类数组对象，
+                - 它不是数组，但是也可以通过索引来操作数据，也可以获取长度
+                - 在调用函数时，所有的参数都会封装到我们的arguments里
+                - 函数即使不定义形参，也可以通过arguments来使用传递进来的参数
+                - 通过arguments[索引]来获取传递的参数
+
+                - 它里面有一个属性叫做callee，
+                    这个属性对应一个函数对象，就是当前正在指向的函数对象
+
+        */
+
+    </script>
+</body>
+</html>

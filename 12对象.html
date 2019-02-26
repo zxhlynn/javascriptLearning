@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象</title>
+</head>
+<body>
+    <script>
+        // 创建对象
+        var obj = new Object();
+        // 增加属性并赋值
+        obj["name"] = "zxh";
+        console.log(obj.name);
+
+        obj.age = 20;
+        console.log(obj["age"]);
+
+        // 删除属性
+        delete obj.name;
+
+
+        // 判断是否含有某个属性
+
+        var isContain = "name" in obj;
+        console.log(isContain);
+
+        // 用字面量初始化对象
+        var obj2 = {
+            name:"zh",
+            age:28
+        };
+
+    </script>
+</body>
+</html>

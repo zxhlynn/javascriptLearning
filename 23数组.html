@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            内建对象
+            数组对象
+            自定义对象
+
+            数组（Array）
+            - 数组也是一个对象
+            - 他和我们的普通对象功能类似，也是用来存储一些值
+            - 不同的是普通对象是使用字符串作为属性名的
+                而数组是使用数字作为索引来操作元素
+
+            - 索引
+                从0开始的整数
+            - 数组的存储性能比普通对象要好，在开发中我们经常使用数组来存储一些数据
+        */
+
+        // 创建一个数字对象
+        var arr = new Array();
+
+        // 字面量创建
+        var arr2 = [100,200,300];
+
+        // 添加元素
+        // 语法：数组[索引] = 值
+
+        arr[0] = 10;
+        console.log(arr[0]);
+
+        arr.push(11);
+        console.log(arr);
+
+        arr.push(12);
+        console.log(arr);
+
+        // 读取数组
+        // 语法：数组[索引]
+        // 如果读取不存在的索引，则会返回undefined
+        var v = arr[1];
+
+        // 使用length属性获取数组长度
+        var length = arr.length;
+
+        // 对于连续的数组获取到长度，对于非连续数组，则返回最大索引+1
+
+        // 设置数组长度
+        arr.length = 2;
+        console.log(arr);
+
+        // 如果修改的length大于原长度，则多余部分会空出
+        // 如果修改的length小于原长度，则多出来的元素会被删除
+
+
+        //push()	向数组的末尾添加一个或更多元素，并返回新的长度。
+
+        console.log(arr.length);
+        var newLength = arr.push(1,2,3);
+        console.log(newLength);
+        console.log(arr.length);
+
+
+        //concat()	连接两个或更多的数组，并返回结果。
+        // 该方法不会改变现有的数组，而仅仅会返回被连接数组的一个副本。
+        // arrayObject.concat(arrayX,arrayX,......,arrayX)
+        var arr3 = [1,2];
+        var arr4 = [3,4];
+        var arr5 = arr3.concat(arr4);
+
+        console.log(arr3);
+        console.log(arr4);
+        console.log(arr5);
+
+
+        //join()	把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+        // arrayObject.join(separator)
+        var arr5Str = arr5.join('|');
+        console.log(arr5Str); //1|2|3|4
+
+
+        // pop() 删除并返回数组的最后一个元素
+        // arrayObject.pop()
+        // pop() 方法将删除 arrayObject 的最后一个元素，把数组长度减 1，并且返回它删除的元素的值。如果数组已经为空，则 pop() 不改变数组，并返回 undefined 值。
+        var deleteEl = arr5.pop();
+
+
+        //push() 向数组的末尾添加一个或更多元素，并返回新的长度。
+        var popArr = new Array();
+        popArr.push();
+
+
+        //reverse()	颠倒数组中元素的顺序。
+        // 该方法会改变原来的数组，而不会创建新的数组。
+        // arrayObject.reverse()
+        var reverseArr = [1,2,3,4];
+        reverseArr.reverse();
+        console.log(reverseArr);
+
+
+        //shift()	删除并返回数组的第一个元素
+        // shift() 方法用于把数组的第一个元素从其中删除，并返回第一个元素的值。
+        var shiftArr = [1,2,3,4];
+        var delEl = shiftArr.shift();
+
+        //slice()	从某个已有的数组返回选定的元素
+        // 不会改变原数组
+        // arrayObject.slice(start,end)
+        /*
+        start	必需。规定从何处开始选取。如果是负数，那么它规定从数组尾部开始算起的位置。
+                也就是说，-1 指最后一个元素，-2 指倒数第二个元素，以此类推。
+        end	    可选。规定从何处结束选取。该参数是数组片断结束处的数组下标。
+                如果没有指定该参数，那么切分的数组包含从 start 到数组结束的所有元素。
+                如果这个参数是负数，那么它规定的是从数组尾部开始算起的元素。
+        */ 
+        var sliceArr = [1,2,3,4,5];
+        var newArr = sliceArr.slice(1,2);
+
+        //sort()	对数组的元素进行排序
+        //arrayObject.sort(sortby)
+        //sortby	可选。规定排序顺序。必须是函数。
+        // 返回值  对数组的引用。请注意，数组在原数组上进行排序，不生成副本。
+        /*
+        如果调用该方法时没有使用参数，将按字母顺序对数组中的元素进行排序，说得更精确点，是按照字符编码的顺序进行排序。要实现这一点，首先应把数组的元素都转换成字符串（如有必要），以便进行比较。
+        如果想按照其他标准进行排序，就需要提供比较函数，该函数要比较两个值，然后返回一个用于说明这两个值的相对顺序的数字。比较函数应该具有两个参数 a 和 b，其返回值如下：
+        若 a 小于 b，在排序后的数组中 a 应该出现在 b 之前，则返回一个小于 0 的值。
+        若 a 等于 b，则返回 0。
+        若 a 大于 b，则返回一个大于 0 的值。
+        */
+        var sortArr = [1,3,4,2,6,5];
+
+        function sort(a,b){
+            // a将接收将要比较的参数，b接收原参数
+            console.log("a:"+a+"|"+"b:"+b);
+            return -1;
+        }
+        sortArr.sort(sort);
+        console.log(sortArr);
+
+        // 对于纯数字的数组sort()也会使用unicode进行排序，所以会出现错误
+
+
+        //splice()	删除元素，并在删除位置向数组添加新元素。
+        // splice() 方法向/从数组中添加/删除项目，然后返回被删除的项目。
+        // 该方法会改变原始数组。
+        // arrayObject.splice(index,howmany,item1,.....,itemX)
+        // 返回值 Array	包含被删除项目的新数组，如果有的话。
+        /*
+            index	必需。整数，规定添加/删除项目的位置，使用负数可从数组结尾处规定位置。
+            howmany	必需。要删除的项目数量。如果设置为 0，则不会删除项目。
+            item1, ..., itemX	可选。向数组添加的新项目。
+        */
+        var spliceArr = [1,2,3,4];
+        var delArr = spliceArr.splice(0,2,5,6,7);
+        console.log(spliceArr);
+
+        //toSource()	返回该对象的源代码。
+
+
+        //toString()	把数组转换为字符串，并返回结果。
+        // 当数组用于字符串环境时，JavaScript 会调用这一方法将数组自动转换成字符串。但是在某些情况下，需要显式地调用该方法。
+        // 数组中的元素之间用逗号分隔。
+
+        var stringArr = ["zxh","abc","123"];
+        var arrStr = stringArr.toString();
+
+
+        //toLocaleString()	把数组转换为本地数组，并返回结果。
+        // 首先调用每个数组元素的 toLocaleString() 方法，然后使用地区特定的分隔符把生成的字符串连接起来，形成一个字符串。
+
+
+
+        //unshift()	向数组的开头添加一个或更多元素，并返回新的长度。
+        var unshiftArr = [1,2,3];
+        var length = unshiftArr.unshift(5,6);
+
+        //valueOf()	返回数组对象的原始值
+        //valueOf() 方法通常由 JavaScript 在后台自动调用，并不显式地出现在代码中。
+
+        // 遍历数组
+        var arr = [1,2,3,4,5,6];
+
+        // 方式1：
+        for (var i = 0; i < arr.length; i++){
+            var item = arr[i];
+            console.log(item);
+        }
+
+        console.log("----------------------");
+
+        // 方式2：常用来查看对象属性
+        for (key in arr){
+            var item = arr[key];
+            console.log(item);
+        }
+
+        console.log("----------------------");
+
+        // 方式3：IE8以上支持
+        arr.forEach(function(value,index,obj){
+            console.log("value",value);
+            console.log("index",index);
+            console.log("obj",obj);
+        });
+
+        // forEach
+        // arrayObject.forEach(function(value,index,obj){})
+        // value: 值
+        // index: 索引
+        // obj: 正在遍历的对象
+
+        console.log("----------------------");
+
+
+        
+        
+
+
+    </script>
+</body>
+</html>

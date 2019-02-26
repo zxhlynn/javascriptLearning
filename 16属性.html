@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 枚举对象属性
+        for (pro in document){
+            //console.log(pro);
+        }
+
+        var obj = new Object();
+        obj.name = "test";
+        obj.num = 10;
+        obj.action = function(){
+            console.log('action');
+        };
+
+        for (pro in obj){
+            console.log(typeof obj[pro]);
+        }
+
+    </script>
+</body>
+</html>
