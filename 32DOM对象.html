@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+					// 对象分为三种,内建对象,宿主对象,自定义对象
+					/*
+						DOM对象 Document Object Model
+						DOM的作用就是通过JS来操作网页
+						
+						文档：整个HTML网页文档
+						对象：指将网页中的每一个部分对转换盛了对象
+						模型：表示对象之间的关系，方便我们获取对象
+						
+						模型中的关系是以树状图形式展开的，体现出节点与节点间的关系
+					*/
+					
+					/*
+						节点
+						Node,是构成网页的最基本组成部分，网页中的每一部分都可以成为是一个节点
+						比如，html标签，属性，文本，注释，整个文档等都是一个节点
+						虽然都是节点，但实际上他们的具体类型是不同的。
+						
+						比如：
+						标签我们成为元素节点，
+						属性成为属性节点，
+						文本成为文本节点，
+						文档成为文档节点
+						节点的类型不同，属性和方法也不同
+						
+						
+						文档节点：document 代表是整个html文档，即整个网页
+						网页中所有的节点都是它的子节点
+						document对象作为window对象的属性存在，
+						我们不用获取可以直接使用
+						通过该对象我们可以在整个文档中访问节点对象，
+						并可以通过该对象创建各种节点对象
+						
+						元素节点：Element 
+						html中的各种标签都是元素节点，
+						这也是我们最常用的一个节点
+						浏览器会将页面中的标签都转换为一个元素节点，
+						我们可以通过document的方法来获取元素节点
+						
+						文本节点：Text
+						文本节点表示的是HTML标签以外的文本内容，
+						任意非HTML的文本都是文本节点
+						它包括可以字面解释的纯文本内容
+						文本节点通常是作为元素节点的子节点存在的
+						获取文本节点是一般要先获取元素节点
+						再通过元素节点获取文本节点
+						
+						属性节点：Attr
+						属性节点表示的是标签中的一个一个的属性，
+						这里要注意的是属性节点并非是元素节点的子节点
+						而是元素节点的一部分
+						可以通过元素节点来获取指定的属性节点
+						例如：元素节点.getAttributeNode("属性名");
+						我们一般不使用元素节点
+						
+					*/
+					console.log(document.nodeName);
+				    console.log(document.nodeType);
+					console.log(document.nodeValue);
+					
+					
+					
+					
+		
+					document.onreadystatechange = function(){
+						// 获取对象
+						var btn = document.getElementById("btn");
+						
+						/*
+							事件：事件就是文档或者浏览器发生的一些特定的交互瞬间
+							javaScript和HTML之间的交互是通过事件实现的
+							对于Web应用来说，有下面这些代表性的事件，鼠标事件，键盘事件等
+							
+							事件，就是用户和浏览器之间的交互行为
+							
+							
+							
+						*/
+					   
+						// 绑定事件
+						btn.onclick = function(){
+							alert("点了一下");
+						}
+									
+									// 模拟点击
+						// 			var event = document.createEvent("Event");
+						// 			event.initEvent("click",true,true);
+						// 			btn.dispatchEvent(event);
+					}
+					
+					// 浏览器在加载页面时时从上到下顺序执行
+					// 如果script在执行时,页面还没有加载,就无法获取到对象
+					
+					/*
+						DOM方法
+						
+						获取节点元素
+						通过document对象调用
+						1.getElementById() 
+						通过id属性获取到一个元素节点对象
+						
+						2.getElementsByTagName() 
+						通过标签名来获取一组元素节点对象
+						
+						3.getElementsByName()
+						通过name属性获取一组元素节点对象
+						
+						4.getElementsByClassName()
+						通过class属性获取到一组元素节点对象
+						
+						
+						
+						
+					*/
+				   
+					/*
+						innerHTML用于获取元素内部的HTML代码
+						对于自结束标签，这个属性没有意义
+					*/
+				   
+					/*
+						如果要读取元素节点属性
+							直接使用元素.属性名
+							例如：元素.id 元素.name 元素.value
+							
+							注意：class属性不能采用该方式
+							class在JS中属于保留字
+							读取class时要使用className
+					*/
+				   
+				   
+					
+				</script>
+	</head>
+	<body>
+		<!-- 我们可以在事件对应的属性中设置一些js代码
+		 当事件发生时会执行 
+		 
+		 这种写法我们成为结构和行为耦合，不方便维护，不推荐使用
+		 -->
+		<button id="btn" type="button">按钮</button>
+		
+	</body>
+</html>

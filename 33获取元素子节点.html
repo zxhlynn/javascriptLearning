@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<script type="text/javascript">
+			
+
+			/*
+				获取元素子节点
+				可以使用
+				element.getElementsByClassName()
+				element.getElementsByTagName()
+				
+				属性：
+				childNodes
+				firstChild
+				lastChild
+					
+			*/
+		   document.onreadystatechange = function(){
+			  if (this.readyState == "complete"){
+				  var contentBody = document.getElementById("content-body");
+				  
+				  /*
+					previousElementSibling 上一个元素兄弟节点，IE8以下不支持
+				  */
+				  var contentHeader = contentBody.previousElementSibling;
+				  /*
+					previousSibling 上一个兄弟节点,可能是文本节点
+				  */
+				  var previous = contentBody.previousSibling;
+				  
+				  
+				  var nodes = document.getElementById("content").childNodes;
+				  for (var i = 0; i < nodes.length; i++) {
+						//console.log(nodes[i]);
+				  }
+				  
+				  // 对于标签中添加的自定义属性,我们不能直接以.属性名来获取值
+				  // 但是可以用.getAttribute("属性名")来获取值
+				  console.log(contentBody.custom);
+				  console.log(contentBody.getAttribute("custom"));
+			  }
+			  
+			  
+			  /*
+				document.querySelector()
+				可以根据一个选择器字符串来获取一个节点
+				他只会返回第一个满足条件的节点
+				
+				document.querySelectorAll();
+				返回所有满足条件的节点，返回的是一个集合
+			  */
+				document.querySelector("#test");
+				document.querySelectorAll("div");
+			 
+		   }
+		</script>
+	</head>
+	<body>
+		<div id="content">
+			<div id="content-header">
+
+			</div>
+			插入到中间
+			<div id="content-body" custom="test">
+				
+			</div>
+		</div>
+		<div class="btn">
+
+		</div>
+		
+		
+
+	</body>
+</html>
