@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+    <!-- 
+        点击超链接以后超链接会跳转页面，这是超链接的默认行为
+        但是我们可以通过在响应函数末尾追加 return false 可以取消它的默认行为
+    -->
+    <!-- 也可以在href中添加 javascript:;来阻止默认的跳转 -->
+    <table>
+        <th>
+            <td>编号</td>
+            <td>姓名</td>
+            <td>年龄</td>
+            <td><a href="javascript:;">删除</a></td>
+        </th>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <hr>
+    
+    <form id="addInfomation">
+        姓名:<input name="name" type="text">
+        <br>
+        年龄:<input name="age" type="text">
+        <br>
+        <input type="submit">
+    </form>
+
+    <hr>
+
+    <a class="a" href="javascript:;">0</a>
+    <a class="a" href="javascript:;">1</a>
+    <a class="a" href="javascript:;">2</a>
+    <a class="a" href="javascript:;">3</a>
+
+    <script>
+        
+        // 获取所有a标签
+        var alist = document.getElementsByClassName("a");
+
+        // 为每个超链接绑定一个单击响应函数
+
+        for (var i = 0; i < alist.length; i++){
+            alist[i].onclick = function () {
+                // 需要注意的是当触发是i永远是结束循环时的值
+                // 此时 this != alist[i]
+                alert(i);
+
+            }
+        }                
+
+
+        
+
+        
+        
+        
+        
+
+        document.getElementById("addInfomation").onsubmit = function(){
+            // confirm 可选择行为的提示框（确认，取消），他的返回值是选择的行为
+            var enter = confirm("是否确认");
+            if (enter){
+                /*
+                    移除节点
+                    element.removeChild()
+                    移除并返回子节点，如果节点不存在则返回null
+                
+                */
+            }
+            return false;
+        }
+    </script>
+    
+</body>
+</html>
+

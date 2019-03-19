@@ -5,5 +5,61 @@
 		<title></title>
 	</head>
 	<body>
+		<div id="insert">
+			
+			<div id="insertChild">inSert</div>
+		</div>
+		<script>
+
+			/*
+				document.createElement()
+				可以创建一个节点对象
+				它需要一个标签名做参数
+				并将创建的对象作为返回值
+
+
+				document.createTextNode()
+				可以创建一个文本节点
+				他需要一个文本内容作为参数
+				并将创建的对象返回
+
+				element.appendCildren()
+				将一个节点对象插入到父节点的末尾
+				需要一个节点对象作为参数
+
+				element.insertBefore(newItem,oldItem);
+				将一个新节点插入到一个旧节点的前面
+			*/
+
+			function create(){
+				var title = document.createElement("h1");
+				var titleText = document.createTextNode("123");
+				var body = document.body;
+				title.appendChild(titleText);
+				body.appendChild(title);
+			}
+
+			function createElement(){
+				var a = document.createElement("a");
+				a.innerHTML = "去百度";
+				a.href = "http://www.baidu.com";
+				var body = document.body;
+				body.appendChild(a);
+			}
+
+			function insertElement(){
+				var insert = document.getElementById("insert");
+				var insertChild = document.getElementById("insertChild");
+				var a = document.createElement("a");
+				a.innerHTML = "这是一个插入的a标签";
+				insert.insertBefore(a,insertChild);
+
+			}
+
+			create();
+			createElement();
+			insertElement();
+			
+		</script>
 	</body>
 </html>

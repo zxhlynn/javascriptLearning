@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #div{
+            width: 100px;
+            height: 100px;
+            background-color: rebeccapurple;
+        }
+        
+    </style>
+</head>
+<body>
+    <button id="btn">点我一下</button>
+    <br><br>
+    <div id="div"></div>
+    <script>
+        var div = document.getElementById("div");
+        document.getElementById("btn").onclick = function () {  
+            /*
+                clientHeight/clientWidth
+                返回元素的可见宽高
+                这两个属性返回的是数字，可直接进行计算
+                返回的是内容区加内边距的宽度，即 内容区 + 内边距（padding） 区域的宽高，不包括border和margin
+                只读属性，不能用来改变样式属性
+
+                改只有一种方式 style
+
+
+                offsetHeight/offsetWidth
+                返回元素的宽高
+                返回的也是数字可计算
+                获取元素整个大小，包括 内容区，内边距，边框
+
+                offsetParent
+                定位父元素
+                可以用来获取当前元素的定位父元素
+                他会获取到离当前元素最近的开启了定位的父元素
+                如果所有祖先元素都没开启定位则返回body
+
+
+                offsetLeft/offsetTop
+                当前元素相对于定位元素的水平偏移量和竖直偏移量
+
+            */
+        }
+    </script>
+</body>
+</html>
+
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        #div{
+            width: 20%;
+            height: 200px;
+            background-color: red;
+        }
+    
+    </style>
+</head>
+<body>
+    <button id="btn">获取元素样式</button>
+    <div id="div"></div>
+    <script>
+        document.getElementById("btn").onclick = function () {
+            /*
+                通过 元素.style.属性 只能获取到元素的内联样式
+                如果元素的样式在样式表中定义，则无法读取
+
+
+                获取元素当前样式
+                语法：元素.currentStyle.样式名
+                它可以用来读取当前元素正在显示的样式
+                如果当前元素没有设置样式，则获取他的默认值
+                注意：该属性只支持ie浏览器
+
+                其他浏览器使用 window.getComputedStyle(el,伪类);
+                如果不是伪类第二个参数可忽略或者设置为null, 为类则设置类型 ‘:after’
+                返回的是一个css对象
+                读取某样式：getComputedStyle(el,null).样式名
+                如果获取的样式没有设置，则返回改样式的真实值，而不是默认值
+
+
+                通过currentStyle 和getComputedStyle获取的值都是只读的
+                不能修改，如果要修改必须通过style属性
+
+            */
+            var div = document.getElementById("div");
+            alert(getComputedStyle(div,null).width);
+
+        }
+
+
+        function getStyle(el,style) {
+
+            // 这里不能用 getComputedStyle 而是要使用 window.getComputedStyle
+            // 因为变量没找到会报错，而属性没找到只会返回undefined
+            if (window.getComputedStyle){
+                return getComputedStyle(el,null)[style];
+            }else{
+                return el.currentStyle[style];
+            }
+
+            // 简写
+            return window.getComputedStyle ? getComputedStyle(el,null)[style] : el.currentStyle[style];
+        }
+    
+    
+    </script>
+</body>
+</html>
